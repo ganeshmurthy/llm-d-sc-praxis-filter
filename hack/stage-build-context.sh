@@ -72,7 +72,7 @@ rsync -a --delete "${EXCLUDES[@]}" "${REPO_ROOT}/"    "${CONTEXT}/llm-d-sc-praxi
 cp "${REPO_ROOT}/Containerfile.praxis" "${CONTEXT}/Containerfile.praxis"
 
 # Sanity: the two things whose absence would produce a confusing build failure.
-[[ -f "${CONTEXT}/praxis/server/Cargo.toml" ]] || { log "FATAL: staged praxis tree is missing server/Cargo.toml"; exit 1; }
+[[ -f "${CONTEXT}/praxis/crates/server/Cargo.toml" ]] || { log "FATAL: staged praxis tree is missing crates/server/Cargo.toml"; exit 1; }
 [[ -f "${CONTEXT}/llm-d-sc-praxis-filter/src/lib.rs" ]] || { log "FATAL: staged filter crate is missing src/lib.rs"; exit 1; }
 
 if [[ -d "${CONTEXT}/praxis/target" || -d "${CONTEXT}/llm-d-sc-praxis-filter/target" ]]; then
